@@ -1,0 +1,8 @@
+//Set the age limit in days for an item to be classified as "New"
+var days = 7
+//Set a label for new items
+var new_label = 'New'
+//Find the age of an item based on a date field. 
+var age_days = DateDiff(Now(), $feature.Date,'Days')
+//If the item was added within the last 7 days, symbolize as "NEW". Otherwise symbolize based on a given field attribute
+When(age_days < days , new_label, $feature.Type)
